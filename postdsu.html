@@ -1,0 +1,289 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogGen | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" id="navbar">
+            <a href="./index.html">
+                <h2 class="logo">BlogGen
+                
+                </h2>
+            </a>
+            <div class="menu" id="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link current">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Categories</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Reviews</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">News</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Membership</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="list list-right">
+                <div class="icon-box place-items-center" id="theme-toggle-btn">
+                    <i class="ri-sun-line sun-icon"></i>
+                    <i class="ri-moon-line moon-icon"></i>
+                </div>
+
+                <div class="icon-box place-items-center" id="search-icon">
+                    <i class="ri-search-line"></i>
+                </div>
+
+                <div class="icon-box place-items-center screen-lg-hidden menu-toggle-icon" id="menu-toggle-icon">
+                    <i class="ri-menu-3-line open-menu-icon"></i>
+                    <i class="ri-close-line close-menu-icon"></i>
+                </div>
+
+            
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search -->
+    <div class="search-form-container container" id="search-form-container">
+        <div class="form-container">
+            <form action="" class="form">
+                <input class="form-input" type="text" placeholder="What are you looking for?">
+                <button class="btn form-btn icon-box" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            <span class="form-note">Or press ESC to close.</span>
+        </div>
+        <div class="btn form-close-btn icon-box place-items-center" id="form-close-btn">
+            <i class="ri-close-line"></i>
+        </div>
+    </div>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Disjoint Set Union</h3>
+                <div class="article-data">
+                    <span>Jan 10th 2022</span>
+                    <span class="article-data-spacer"></span>
+                    <span>4 Min read</span>
+                </div>
+                <img src="./assets/images/featured/featured-2.jpg" alt="">
+            </div>
+
+            <div class="container">
+                <h1>What is a Disjoint set data structure?</h1>
+                <blockquote class="quote">
+                    <p><span><i class="ri-double-quotes-l"></i></span> Two sets are called disjoint sets if they don’t have any element in common, the intersection of sets is a null set.  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
+                <p>
+                    A data structure that stores non overlapping or disjoint subset of elements is called disjoint set data structure. The disjoint set data structure supports following operations:
+                </p>
+                <p>Add a new friendship relation, i.e. a person x becomes the friend of another person y i.e adding new element to a set.
+                    Find whether individual x is a friend of individual y (direct or indirect friend)</p>
+                    <p>Add a new friendship relation, i.e. a person x becomes the friend of another person y i.e adding new element to a set.
+                        Find whether individual x is a friend of individual y (direct or indirect friend)</p>
+                <div>
+                    <ul>
+                        <li>Adding new sets to the disjoint set.</li>
+                        <li>Merging disjoint sets to a single disjoint set using Union operation.</li>
+                        <li>
+                            Finding representative of a disjoint set using Find operation.</li>
+                        <li>
+                            Check if two sets are disjoint or not. </li>
+
+                    </ul>
+                </div>
+                <p>Consider a situation with a number of persons and the following tasks to be performed on them:</p>
+                <p>Add a new friendship relation, i.e. a person x becomes the friend of another person y i.e adding new element to a set.
+                    Find whether individual x is a friend of individual y (direct or indirect friend)</p>
+                <p><h1>Examples:</h1></p>
+                <p>We are given 10 individuals say, a, b, c, d, e, f, g, h, i, j
+
+                    Following are relationships to be added:
+                    a <-> b,
+                    b <-> d,
+                    c <-> f,
+                    c <-> i,
+                    j <-> e,
+                    g <-> j,
+                    
+                    Given queries like whether a is a friend of d or not. We basically need to create following 4 groups and maintain a quickly accessible connection among group items:
+                    G1 = {a, b, d},
+                    G2 = {c, f, i},
+                    G3 = {e, g, j},
+                    G4 = {h}</p>
+                    <p><h1>Find whether x and y belong to the same group or not, i.e. to find if x and y are direct/indirect friends.</h1></p>
+                    <p>Partitioning the individuals into different sets according to the groups in which they fall. This method is known as a Disjoint set Union which maintains a collection of Disjoint sets and each set is represented by one of its members.</p>
+                    <p>To answer the above question two key points to be considered are:
+
+                        How to Resolve sets? Initially, all elements belong to different sets. After working on the given relations, we select a member as a representative. There can be many ways to select a representative, a simple one is to select with the biggest index.
+                        Check if 2 persons are in the same group? If representatives of two individuals are the same, then they’ll become friends.</p>
+                        <p><h1>Data Structures used are: </h1></p>
+                        <p>Union</p>
+                        <p>Find</p>
+                        <p><h1>Union by Size and Path Compression:</h1></p>
+                        <p>The efficiency depends heavily on which tree get attached to the other. There are 2 ways in which it can be done. First is Union by Rank, which considers height of the tree as the factor and Second is Union by Size, which considers size of the tree as the factor while attaching one tree to the other . This method along with Path Compression gives complexity of nearly constant time.</p>
+                   <p><script src="https://gist.github.com/Priyadarshan-coder/ef05276f65f49045b9d14df16e07adb6.js"></script></p>
+                   <p>Time complexity: O(log n)</p>
+                   <p><h1>Union by Size</h1></p>
+                   <p>Again, we need a new array of integers called size[]. The size of this array is the same as the parent array Parent[]. If i is a representative of a set, size[i] is the number of the elements in the tree representing the set. 
+                    Now we are uniting two trees (or sets), let’s call them left and right, then in this case it all depends on the size of left and the size of right tree (or set).
+                    
+                    If the size of left is less than the size of right, then it’s best to move left under right and increase size of right by size of left. In the same way, if the size of right is less than the size of left, then we should move right under left. and increase size of left by size of right.
+                    If the sizes are equal, it doesn’t matter which tree goes under the other.</p>
+                    <p><script src="https://gist.github.com/Priyadarshan-coder/e14426385ab05409065432b539c4521a.js"></script></p>
+                        <blockquote class="quote">
+                    <p><span><i class="ri-double-quotes-l"></i></span> Time complexity: O(n) for creating n single item sets . The two techniques -path compression with the union by rank/size, the time complexity will reach nearly constant time.
+                        It turns out, that the final amortized time complexity is O(α(n)), where α(n) is the inverse Ackermann function, which grows very steadily.
+                        Space complexity: O(n) because we need to store n elements in the Disjoint Set Data Structure.
+  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
+            
+
+                <div class="author d-grid">
+                    <div class="author-image-box">
+                        <img src="./assets/images/author.jpeg" alt="" class="article-image">
+                    </div>
+                    <div class="author-about">
+                        <h3 class="author-name">Priyadarshan Ghosh Hazra</h3>
+                        <p>Hello, I'm Priyadarshan Ghosh Hazra, a dedicated full-stack web developer currently in my fourth year pursuing a B.Tech in Electrical Engineering at Heritage Institute of Technology. With expertise in MERN stack, Java, and Spring Boot, I specialize in crafting dynamic web solutions. Proficient in data structures and algorithms, I thrive on building efficient and scalable applications</p>
+                        <ul class="list social-media">
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section">
+        <div class="footer-container container d-grid">
+            
+            <div class="company-data">
+                <a href="./index.html">
+                    <h2 class="logo">BlogGen</h2>
+                </a>
+                <p class="company-description">Introducing BlogGen: Your ultimate destination for diverse blogs spanning across technology, travel, food, and more. Explore a plethora of engaging content tailored to your interests, all in one convenient platform</p>
+                <ul class="list social-media">
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-pinterest-line"></i></a>
+                    </li>
+                </ul>
+                <span class="copyright-notice">&copy;2021 BlogGen. All rights reserved.</span>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Categories</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Travel</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Food</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Technology</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Health</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Nature</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Fitness</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Useful links</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Elements</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Tags</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Authors</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Membership</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Company</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Contact us</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">F.A.Q</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Careers</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Authors</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Memberships</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper.js -->
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

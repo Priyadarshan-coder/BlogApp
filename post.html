@@ -1,0 +1,256 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogGen | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" id="navbar">
+            <a href="./index.html">
+                <h2 class="logo">BlogGen
+                
+                </h2>
+            </a>
+            <div class="menu" id="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link current">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Categories</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Reviews</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">News</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Membership</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="list list-right">
+                <div class="icon-box place-items-center" id="theme-toggle-btn">
+                    <i class="ri-sun-line sun-icon"></i>
+                    <i class="ri-moon-line moon-icon"></i>
+                </div>
+
+                <div class="icon-box place-items-center" id="search-icon">
+                    <i class="ri-search-line"></i>
+                </div>
+
+                <div class="icon-box place-items-center screen-lg-hidden menu-toggle-icon" id="menu-toggle-icon">
+                    <i class="ri-menu-3-line open-menu-icon"></i>
+                    <i class="ri-close-line close-menu-icon"></i>
+                </div>
+
+            
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search -->
+    <div class="search-form-container container" id="search-form-container">
+        <div class="form-container">
+            <form action="" class="form">
+                <input class="form-input" type="text" placeholder="What are you looking for?">
+                <button class="btn form-btn icon-box" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            <span class="form-note">Or press ESC to close.</span>
+        </div>
+        <div class="btn form-close-btn icon-box place-items-center" id="form-close-btn">
+            <i class="ri-close-line"></i>
+        </div>
+    </div>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">0/1 knapsack</h3>
+                <div class="article-data">
+                    <span>Dec 6th 2021</span>
+                    <span class="article-data-spacer"></span>
+                    <span>5 Min read</span>
+                </div>
+                <img src="./assets/images/featured/featured-3.png" alt="">
+            </div>
+
+            <div class="container">
+                <blockquote class="quote">
+                    <p><span><i class="ri-double-quotes-l"></i></span> A simple solution is to consider all subsets of items and calculate the total weight and profit of all subsets. Consider the only subsets whose total weight is smaller than W. From all such subsets, pick the subset with maximum profit.
+
+                        Optimal Substructure: To consider all subsets of items, there can be two cases for every item. 
+                        
+                    <p> Case 1: The item is included in the optimal subset.</p>
+
+                       <p> Case 2: The item is not included in the optimal set.</p>  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
+                <p>Follow the below steps to solve the problem:
+
+                    The maximum value obtained from ‘N’ items is the max of the following two values. 
+                    
+                    Case 1 (include the Nth item): Value of the Nth item plus maximum value obtained by remaining N-1 items and remaining weight i.e. (W-weight of the Nth item).
+                    Case 2 (exclude the Nth item): Maximum value obtained by N-1 items and W weight.
+                    If the weight of the ‘Nth‘ item is greater than ‘W’, then the Nth item cannot be included and Case 2 is the only possibility.
+                    Below is the implementation of the above approach: 
+                    Time Complexity: O(2^N)
+                    Auxiliary Space: O(N), Stack space required for recursion</p>
+                <p>
+                    <script src="https://gist.github.com/Priyadarshan-coder/803369d2fd07197c12a36f6fd9f0bebf.js"></script>
+                   </p>
+                
+                   <p>As there are repetitions of the same subproblem again and again we can implement the following idea to solve the problem.
+
+                    If we get a subproblem the first time, we can solve this problem by creating a 2-D array that can store a particular state (n, w). Now if we come across the same state (n, w) again instead of calculating it in exponential complexity we can directly return its result stored in the table in constant time.</p>
+                    <p>Below is the implementation of the above approach:</p>
+                    <p>
+                        <script src="https://gist.github.com/Priyadarshan-coder/fe8abb78f401b39382e7882198ed002f.js"></script>
+                    </p>
+                <blockquote class="quote">
+                    <p><span><i class="ri-double-quotes-l"></i></span>Time Complexity: O(N * W). As redundant calculations of states are avoided.
+                        Auxiliary Space: O(N * W) + O(N). The use of a 2D array data structure for storing intermediate states and O(N) auxiliary stack space(ASS) has been used for recursion stack  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
+            
+
+                <div class="author d-grid">
+                    <div class="author-image-box">
+                        <img src="./assets/images/author.jpeg" alt="" class="article-image">
+                    </div>
+                    <div class="author-about">
+                        <h3 class="author-name">Priyadarshan Ghosh Hazra</h3>
+                        <p>Hello, I'm Priyadarshan Ghosh Hazra, a dedicated full-stack web developer currently in my fourth year pursuing a B.Tech in Electrical Engineering at Heritage Institute of Technology. With expertise in MERN stack, Java, and Spring Boot, I specialize in crafting dynamic web solutions. Proficient in data structures and algorithms, I thrive on building efficient and scalable applications</p>
+                        <ul class="list social-media">
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section">
+        <div class="footer-container container d-grid">
+            
+            <div class="company-data">
+                <a href="./index.html">
+                    <h2 class="logo">BlogGen</h2>
+                </a>
+                <p class="company-description">Introducing BlogGen: Your ultimate destination for diverse blogs spanning across technology, travel, food, and more. Explore a plethora of engaging content tailored to your interests, all in one convenient platform</p>
+                <ul class="list social-media">
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link"><i class="ri-pinterest-line"></i></a>
+                    </li>
+                </ul>
+                <span class="copyright-notice">&copy;2021 BlogGen. All rights reserved.</span>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Categories</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Travel</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Food</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Technology</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Health</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Nature</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Fitness</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Useful links</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Elements</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Tags</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Authors</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Membership</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="title footer-title">Company</h6>
+                <ul class="footer-list list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">Contact us</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">F.A.Q</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Careers</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Authors</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Memberships</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper.js -->
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
